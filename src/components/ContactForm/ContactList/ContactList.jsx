@@ -1,7 +1,7 @@
-import { Component } from 'react';
-import { Contact } from './Contact';
+import React from 'react';
+import { Contact } from '../Contact/Contact';
 
-export class ContactList extends Component {
+export class ContactList extends React.Component {
   render() {
     return (
       <ul>
@@ -22,10 +22,6 @@ export class ContactList extends Component {
   }
 
   handleDelete = contactId => {
-    this.setState(prevState => ({
-      initialValues: prevState.initialValues.filter(
-        contact => contact.id !== contactId
-      ),
-    }));
+    this.props.onDelete(contactId);
   };
 }
